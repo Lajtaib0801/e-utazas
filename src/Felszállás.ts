@@ -7,6 +7,17 @@ export default abstract class Felszállás {
         return false;
     }
 
+    get ezIngyenes(): boolean {
+        return false;
+    }
+
+    get ezKedvezményes(): boolean {
+        return false;
+    }
+    get ezLejárHáromNap(): boolean {
+        return false;
+    }
+
     get megállóSorszáma(): number {
         return this._megállóSorszáma;
     }

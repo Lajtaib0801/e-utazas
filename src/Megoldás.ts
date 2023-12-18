@@ -59,6 +59,13 @@ export default class Megoldás {
         return max;
     }
 
+    get ingyenesenUtazók(): number {
+        return this.#utasadatok.filter(x => x.ezIngyenes && x.ezÉrvényesFelszállás).length;
+    }
+    get kedvezményesenUtazók(): number {
+        return this.#utasadatok.filter(x => x.ezKedvezményes && x.ezÉrvényesFelszállás).length;
+    }
+
     constructor(forrás: string) {
         fs.readFileSync(forrás)
             .toString()
