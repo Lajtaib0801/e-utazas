@@ -36,6 +36,8 @@ export default function content(req: http.IncomingMessage, res: http.ServerRespo
     res.write(`3. feladat\nA legtöbb utas (${legtöbbFelszállóVektor.felszálló} fő) a ${legtöbbFelszállóVektor.megálló}. megállóban próbált felszállni.\n`);
 
     res.write(`5. feladat\nIngyenesen utazók száma: ${mo.ingyenesenUtazók} fő\nA kedvezményesen utazók száma: ${mo.kedvezményesenUtazók} fő\n`);
+
+    mo.figyelmeztetéseketÍr("figyelmeztetes.txt");
     // <---- Fejezd be a kódolást
 
     res.write("</pre></form></body></html>");

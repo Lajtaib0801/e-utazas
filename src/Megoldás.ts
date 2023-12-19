@@ -81,4 +81,20 @@ export default class Megoldás {
                 }
             });
     }
+
+    figyelmeztetéseketÍr(állományNeve: string): void {
+        const ki: string[] = [];
+        for (const e of this.#utasadatok) {
+            if (e instanceof FelszállásBérlet) {
+                if (e.ezLejárHáromNap) {
+                    ki.push(`${e.állománySora}`);
+                }
+            }
+        }
+        try {
+            fs.writeFileSync(állományNeve, ki.join("\r\n") + "\r\n");
+        } catch (error) {
+            throw new Error((error as Error).message);
+        }
+    }
 }

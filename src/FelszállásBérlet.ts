@@ -14,7 +14,7 @@ export default class FelszállásBérlet extends Felszállás {
     }
 
     get ezÉrvényesFelszállás(): boolean {
-        return this.#érvényes >= this._idő;
+        return this.#érvényes.valueOf() >= this._idő.valueOf();
     }
 
     get ezLejárHáromNap(): boolean {
@@ -34,6 +34,9 @@ export default class FelszállásBérlet extends Felszállás {
         return this.ezÉrvényesFelszállás && ~~(diff / (24 * 60 * 60 * 1000)) <= 3;
     }
 
+    get állománySora(): string {
+        return `${this._kártyaAzon} ${this.#érvényes.toLocaleDateString()}`
+    }
     constructor(sor: string) {
         super(sor);
         const m: string[] = sor.split(" ");
